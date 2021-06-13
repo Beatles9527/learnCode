@@ -21,7 +21,9 @@ public class DeptConsumerController {
      * （url，实体：map，Class<T> responseType）
      */
 
-    private static final String REST_URL_PREFIX = "http://localhost:8001";
+    // Ribbon: 我们这里的地址，应该是一个变量，通过服务名来访问
+//    private static final String REST_URL_PREFIX = "http://localhost:8001";
+    private static final String REST_URL_PREFIX = "http://SPRINGCLOUD-PROVIDER-DEPT";
 
     /**
      * 提供多种便捷访问远程http服务的方法，简单的restful服务模板
