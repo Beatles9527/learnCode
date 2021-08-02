@@ -27,4 +27,12 @@ public interface SqlSession {
      * @return
      */
     <T> T selectOne(String statementId, Object... params) throws Exception;
+
+    /**
+     *
+     * @param mapperClass
+     * @param <T>
+     * @return
+     */
+    <T> T getMapper(Class<T> mapperClass);
 }
