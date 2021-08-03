@@ -3,9 +3,7 @@ package cn.redblood.sqlSession;
 import cn.redblood.pojo.Configuration;
 import cn.redblood.pojo.MappedStatement;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
+import java.lang.reflect.*;
 import java.util.List;
 
 /**
@@ -64,7 +62,23 @@ public class DefaultSqlSession implements SqlSession {
         Object proxyInstance = Proxy.newProxyInstance(DefaultSqlSession.class.getClassLoader(), new Class[]{mapperClass}, new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                return null;
+                // 底层都还是去执行JDBC代码 // 根据不同情况，来调用selectList或者selectOne
+                // 准备参数 1：statementId ：sql语句的唯一标识：namespace.id= 接口全限定名.方法名
+                // 方法名： findAll
+                String methodName = method.getName();
+                String className = method.getDeclaringClass().getName();
+
+                String statementId = className + "." + methodName;
+
+                // 准备参数 2：param：args
+                // 获取被调用方法的返回值
+                Type genericReturnType = method.getGenericReturnType();
+                // TODO 判断是否进行了，泛型参数化！！！！！
+                if (genericReturnType instanceof ParameterizedType) {
+                    List<Object> objects = selectList(statementId, args);
+                    return objects;
+                }
+                return selectOne(statementId,args);
             }
         });
         return (T) proxyInstance;
