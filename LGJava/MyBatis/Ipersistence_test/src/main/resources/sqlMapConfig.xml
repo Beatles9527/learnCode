@@ -3,9 +3,9 @@
     <!--    数据库配置信息-->
     <dataSource>
         <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://101.133.175.171:3306/db_lg_java"></property>
-        <property name="username" value="root"></property>
-        <property name="password" value="The_Beatles9527"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://192.168.0.10:3306/db_lg_java"></property>
+        <property name="username" value="******"></property>
+        <property name="password" value="******"></property>
         <property name="validationQuery" value="SELECT 1"/>
     </dataSource>
 
