@@ -19,6 +19,7 @@ public class UseJoin {
         @Override
         public void run() {
             try {
+                System.out.println(thread.getName() + " will be join before " + Thread.currentThread().getName());
                 thread.join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
