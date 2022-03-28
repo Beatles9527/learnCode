@@ -31,7 +31,7 @@ public class Test01 {
         // 配置数据库相关连接信息
         configuration.setJdbcDriver("com.mysql.cj.jdbc.Driver");
         configuration.setJdbcUsername("root");
-        configuration.setJdbcPassword("The_Beatles9527");
+        configuration.setJdbcPassword("***");
         configuration.setJdbcUrl("jdbc:mysql://101.133.175.171:3306/flowable-learn?serverTimezone=UTC");
         // 如果数据库中的表结构不存在就新建
         configuration.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
@@ -49,7 +49,7 @@ public class Test01 {
         // 配置数据库相关连接信息
         configuration.setJdbcDriver("com.mysql.cj.jdbc.Driver");
         configuration.setJdbcUsername("root");
-        configuration.setJdbcPassword("The_Beatles9527");
+        configuration.setJdbcPassword("***");
         configuration.setJdbcUrl("jdbc:mysql://101.133.175.171:3306/flowable-learn?serverTimezone=UTC");
         // 如果数据库中的表结构不存在就新建
         configuration.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
